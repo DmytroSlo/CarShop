@@ -3,4 +3,4 @@ Last name: Kowalski
 Login: janusz28
 Password: jankow228
 Age: 43
-Role: ADMINISTRATOR
+Role: BOSS

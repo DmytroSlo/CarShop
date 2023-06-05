@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static org.dmytroslo.Role.*;
+
 public class Shop implements ISklep {
     private String shopName;
     private String adres;
@@ -17,22 +19,66 @@ public class Shop implements ISklep {
         this.listCar = listCar;
     }
 
-    public void start(){
+    public void start(String login) throws FileNotFoundException {
         User user = new User();
+        user.setGet(login);
         while(true){
-            if(user.getRole() == Role.CLIENT){
+            if(user.getRole() == CLIENT){
+                Scanner scan = new Scanner(System.in);
                 System.out.println("Menu:" +
                         "\n1. Katalog samochodowy;" +
                         "\n2. Wyszukiwanie samochoda" +
                         "\n3. Danne salonu");
-            } else if(user.getRole() == Role.PERSONAL){
+
+                int result = scan.nextInt();
+                switch (result){
+                    case 1:
+                        readData();
+                        break;
+                    case 2:
+                        System.out.println("W trakcie \\ Create this function");
+                        break;
+                    case 3:
+                        System.out.println("Danne salonu \\ Create this function");
+                        break;
+                    default:
+                        break;
+                }
+
+
+            } else if(user.getRole() == PERSONAL){
+                Scanner scan = new Scanner(System.in);
+
                 System.out.println("Menu:" +
                         "\n1. Katalog samochodowy;" +
                         "\n2. Wyszukiwanie samochoda" +
                         "\n3. Danne salonu" +
                         "\n4. Danne klientów" +
                         "\n5. Dodawanie nowego samochodu");
-            } else if(user.getRole() == Role.ADMINISTRATOR){
+
+                int result = scan.nextInt();
+                switch (result){
+                    case 1:
+                        readData();
+                        break;
+                    case 2:
+                        System.out.println("W trakcie \\ Create this function");
+                        break;
+                    case 3:
+                        System.out.println("Danne salonu \\ Create this function");
+                        break;
+                    case 4:
+                        System.out.println("Danne klientów \\ Create this function");
+                        break;
+                    case 5:
+                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        break;
+                    default:
+                        break;
+                }
+            } else if(user.getRole() == ADMINISTRATOR){
+                Scanner scan = new Scanner(System.in);
+
                 System.out.println("Menu:" +
                         "\n1. Katalog samochodowy;" +
                         "\n2. Wyszukiwanie samochoda" +
@@ -41,7 +87,44 @@ public class Shop implements ISklep {
                         "\n5. Dodawanie nowego samochodu" +
                         "\n6. Usuwanie samochodów" +
                         "\n7. Rejestracjia nowego użytkownika");
-            } else if(user.getRole() == Role.BOSS){
+
+                int result = scan.nextInt();
+                switch (result){
+                    case 1:
+                        readData();
+                        break;
+                    case 2:
+                        System.out.println("W trakcie \\ Create this function");
+                        break;
+                    case 3:
+                        System.out.println("Danne salonu \\ Create this function");
+                        break;
+                    case 4:
+                        System.out.println("Danne klientów \\ Create this function");
+                        break;
+                    case 5:
+                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        break;
+                    case 6:
+                        System.out.println("Usuwanie samochodów \\ Create this function");
+                        break;
+                    case 7:
+                        newUser();
+                        Scanner scanner = new Scanner(System.in);
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        String res = scanner.nextLine();
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
+                    default:
+                        break;
+                }
+
+            } else if(user.getRole() == BOSS){
+                Scanner scanner = new Scanner(System.in);
+
                 System.out.println("Menu:" +
                         "\n1. Katalog samochodowy;" +
                         "\n2. Wyszukiwanie samochoda" +
@@ -51,6 +134,43 @@ public class Shop implements ISklep {
                         "\n6. Usuwanie samochodów" +
                         "\n7. Rejestracjia nowego użytkownika" +
                         "\n8. Zmiana nazwy salonu");
+
+                int result = scanner.nextInt();
+                switch (result){
+                    case 1:
+                        readData();
+                        break;
+                    case 2:
+                        System.out.println("W trakcie \\ Create this function");
+                        break;
+                    case 3:
+                        System.out.println("Danne salonu \\ Create this function");
+                        break;
+                    case 4:
+                        System.out.println("Danne klientów \\ Create this function");
+                        break;
+                    case 5:
+                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        break;
+                    case 6:
+                        System.out.println("Usuwanie samochodów \\ Create this function");
+                        break;
+                    case 7:
+                        newUser();
+                        Scanner scan = new Scanner(System.in);
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        String res = scan.nextLine();
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
+                    case 8:
+                        System.out.println("Zmiana nazwy salonu \\ Create this function");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -145,15 +265,13 @@ public class Shop implements ISklep {
         System.out.print("Podaj numer: ");
         int number = scan.nextInt();
 
-        infoCar.info(car.get(number - 1));
-
         return infoCar.info(car.get(number - 1));
     }
 
     public void newUser() throws FileNotFoundException {
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Podaj swoje imię: ");
+        System.out.print("Podaj imię: ");
         String name = scan.nextLine();
 
         System.out.print("Podaj nazwisko: ");
@@ -165,15 +283,34 @@ public class Shop implements ISklep {
         System.out.print("Poday hasło: ");
         String password = scan.nextLine();
 
-        System.out.print("Podaj swój wiek: ");
+        System.out.print("Podaj wiek: ");
         int age = scan.nextInt();
+
+        System.out.println("Wybierz role dla użytkownika:" +
+                "\n1. Client" +
+                "\n2. Pracownik" +
+                "\n3. Administrator");
+
+        int rol = scan.nextInt();
+        Role role = CLIENT;
+        switch (rol){
+            case 1:
+                role = CLIENT;
+                break;
+            case 2:
+                role = PERSONAL;
+                break;
+            case 3:
+                role = ADMINISTRATOR;
+
+        }
 
         User user = new User.Builder().setName(name)
                 .setlName(lName)
                 .setLogin(login)
                 .setPassword(password)
                 .setAge(age)
-                .setRole(Role.ADMINISTRATOR).build();
+                .setRole(role).build();
 
         user.createAccount();
     }

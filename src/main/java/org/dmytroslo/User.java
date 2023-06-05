@@ -24,6 +24,7 @@ public class User {
     }
 
     public void createAccount() throws FileNotFoundException {
+        System.out.println("Start");
         PrintWriter save = new PrintWriter("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
         save.println("Name: " + name +
                 "\nLast name: " + lName +

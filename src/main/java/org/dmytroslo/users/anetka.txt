@@ -1,0 +1,6 @@
+Name: Aneta
+Last name: Slobodian
+Login: anetka
+Password: necia
+Age: 18
+Role: PERSONAL

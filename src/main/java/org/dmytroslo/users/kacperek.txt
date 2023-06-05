@@ -1,0 +1,6 @@
+Name: Kacper
+Last name: gac
+Login: kacperek
+Password: kac123
+Age: 22
+Role: CLIENT

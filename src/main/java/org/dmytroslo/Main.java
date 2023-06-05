@@ -19,11 +19,8 @@ public class Main {
         String password = scan.nextLine();
 
         if(user.isNotEmpty(login) && user.currentPassword(login, password)){
-            while(true){
-                System.out.println("Witaj " + user.getName() + " w naszym salonie!");
-                shop.start();
-                break;
-            }
+            System.out.println("Witaj " + user.getName() + " w naszym salonie!");
+            shop.start(login);
         } else if(user.isNotEmpty(login) && !user.currentPassword(login, password)){
             System.out.print("Złe wpisałeś hasło! Spróbuj ponownie!" +
                     "\nWpisz \"Y\" oby spróbować ponownie lub \"N\" oby skończyć seans: ");
