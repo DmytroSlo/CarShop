@@ -1,0 +1,6 @@
+Marka: Ford
+Model: Mustang
+Power Engin: 2700
+Year: 1999
+Dystance: 48750 km
+Power: 2.2

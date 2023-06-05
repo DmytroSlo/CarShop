@@ -1,0 +1,6 @@
+Marka: Fiat
+Model: Punto
+Power Engin: 1450
+Year: 2012
+Dystance: 98399
+Power: 1.6

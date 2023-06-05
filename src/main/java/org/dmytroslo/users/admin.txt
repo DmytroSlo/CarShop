@@ -1,0 +1,6 @@
+Name: admin
+Last name: admin
+Login: admin
+Password: admin
+Age: 22
+Role: ADMINISTRATOR

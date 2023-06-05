@@ -1,0 +1,6 @@
+Marka: BMW
+Model: E130
+Power Engin: 2830
+Year: 1997
+Dystance: 3800
+Power: 1.9
