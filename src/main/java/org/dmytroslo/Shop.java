@@ -166,6 +166,7 @@ public class Shop implements ISklep {
 
                 int result = scan.nextInt();
 
+                Scanner scanner = new Scanner(System.in);
                 String res = "";
                 switch (result){
                     case 1:
@@ -173,7 +174,7 @@ public class Shop implements ISklep {
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
-                        res = scan.nextLine();
+                        res = scanner.nextLine();
 
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
@@ -185,7 +186,7 @@ public class Shop implements ISklep {
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
-                        res = scan.nextLine();
+                        res = scanner.nextLine();
 
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
@@ -206,7 +207,7 @@ public class Shop implements ISklep {
                         break;
                     case 7:
                         newUser();
-                        Scanner scanner = new Scanner(System.in);
+
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
                         res = scanner.nextLine();
@@ -219,7 +220,7 @@ public class Shop implements ISklep {
                 }
 
             } else if(user.getRole() == BOSS){
-                Scanner scanner = new Scanner(System.in);
+                Scanner scan = new Scanner(System.in);
 
                 System.out.println("Menu:" +
                         "\n1. Katalog samochodowy;" +
@@ -231,7 +232,9 @@ public class Shop implements ISklep {
                         "\n7. Rejestracjia nowego użytkownika" +
                         "\n8. Zmiana nazwy salonu");
 
-                int result = scanner.nextInt();
+                int result = scan.nextInt();
+
+                Scanner scanner = new Scanner(System.in);
                 String res = "";
                 switch (result){
                     case 1:
@@ -272,10 +275,10 @@ public class Shop implements ISklep {
                         break;
                     case 7:
                         newUser();
-                        Scanner scan = new Scanner(System.in);
+
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
-                        res = scan.nextLine();
+                        res = scanner.nextLine();
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
                             return;
