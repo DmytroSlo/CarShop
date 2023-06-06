@@ -40,16 +40,19 @@ public class User {
     }
 
     public boolean isNotEmpty(String login) throws FileNotFoundException {
+        try {
+            File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
 
-        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
+            boolean isNotEmpty = false;
 
-        boolean isNotEmpty = false;
+            if (file.exists()) isNotEmpty = true;
 
-        if (file.exists()) isNotEmpty = true;
+            setGet(login);
 
-        setGet(login);
-
-        return isNotEmpty;
+            return isNotEmpty;
+        } catch (FileNotFoundException e){
+            return false;
+        }
     }
 
     public void setGet(String login) throws FileNotFoundException {

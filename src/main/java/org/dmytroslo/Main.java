@@ -19,14 +19,23 @@ public class Main {
         System.out.print("Password: ");
         String password = scan.nextLine();
 
-        if(user.isNotEmpty(login) && user.currentPassword(login, password)){
-            System.out.println("Witaj " + user.getName() + " w naszym salonie!");
-            shop.start(login);
-        } else if(user.isNotEmpty(login) && !user.currentPassword(login, password)){
-            System.out.print("Złe wpisałeś hasło! Spróbuj ponownie!" +
-                    "\nWpisz \"Y\" oby spróbować ponownie lub \"N\" oby skończyć seans: ");
-        } else if(!user.isNotEmpty(login)) System.out.println("Takiego użytkownika nie ma w systemie." +
-                "\nSkontaktuj się z przedstawicielami serwisa dla zalorzenia konta!");
-
+        while(true) {
+            if (user.isNotEmpty(login) && user.currentPassword(login, password)) {
+                System.out.println("Witaj " + user.getName() + " w naszym salonie!");
+                shop.start(login);
+            } else if (user.isNotEmpty(login) && !user.currentPassword(login, password)) {
+                System.out.print("Złe wpisałeś hasło! Spróbuj ponownie!" +
+                        "\nWpisz \"Y\" oby spróbować ponownie lub \"N\" oby skończyć seans: ");
+                Scanner scanner = new Scanner(System.in);
+                String input = scanner.nextLine();
+                if(!input.equals("Y")){
+                    break;
+                }
+            } else if (!user.isNotEmpty(login)) {
+                System.out.println("Takiego użytkownika nie ma w systemie." +
+                        "\nSkontaktuj się z przedstawicielami serwisa dla zalorzenia konta!");
+                break;
+            }
+        }
     }
 }
