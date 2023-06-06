@@ -2,6 +2,8 @@ package org.dmytroslo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import static org.dmytroslo.Role.*;
@@ -18,7 +20,7 @@ public class Shop implements ISklep {
         this.listCar = listCar;
     }
 
-    public void start(String login) throws FileNotFoundException {
+    public void start(String login) throws IOException {
         User user = new User();
         user.setGet(login);
         while(true){
@@ -355,8 +357,17 @@ public class Shop implements ISklep {
                             System.out.println("Do zobaczenia " + user.getName() + "!");
                             return;
                         }
+                        break;
                     case 8:
-                        System.out.println("Zmiana nazwy salonu \\ Create this function");
+                        saveData();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     default:
                         break;
@@ -478,8 +489,29 @@ public class Shop implements ISklep {
     }
 
     @Override
-    public void saveData() {
+    public void saveData() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj nową nazwe firmy: ");
+        String newName = scanner.nextLine();
 
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
+        StringBuilder content = new StringBuilder();
+
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            String line = scan.nextLine();
+            if(line.startsWith("NameCompani: ")){
+                line = "NameCompani: " + newName;
+            }
+            content.append(line).append("\n");
+        }
+        scan.close();
+
+        FileWriter save = new FileWriter(file);
+        save.write(content.toString());
+        save.close();
+
+        System.out.println("Nazwa firmy zmieniona na: " + newName);
     }
 
     @Override
