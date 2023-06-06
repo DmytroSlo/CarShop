@@ -1,0 +1,6 @@
+Name: user
+Last name: user
+Login: user
+Password: user
+Age: 37
+Role: CLIENT

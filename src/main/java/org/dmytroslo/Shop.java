@@ -2,9 +2,7 @@ package org.dmytroslo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.dmytroslo.Role.*;
 
@@ -12,6 +10,7 @@ public class Shop implements ISklep {
     private String shopName;
     private String adres;
     private List<String> listCar = new ArrayList<>();
+
     public Shop(){}
     public Shop(String shopName, String adres, List<String> listCar){
         this.shopName = shopName;
@@ -31,15 +30,44 @@ public class Shop implements ISklep {
                         "\n3. Danne salonu");
 
                 int result = scan.nextInt();
+                Scanner scanner = new Scanner(System.in);
+                String res = "";
                 switch (result){
                     case 1:
                         readData();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 2:
-                        System.out.println("W trakcie \\ Create this function");
+                        shearchModelAndMarkCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 3:
                         System.out.println("Danne salonu \\ Create this function");
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     default:
                         break;
@@ -57,21 +85,69 @@ public class Shop implements ISklep {
                         "\n5. Dodawanie nowego samochodu");
 
                 int result = scan.nextInt();
+
+                Scanner scanner = new Scanner(System.in);
+                String res = "";
                 switch (result){
                     case 1:
                         readData();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 2:
                         System.out.println("W trakcie \\ Create this function");
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 3:
                         System.out.println("Danne salonu \\ Create this function");
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 4:
                         System.out.println("Danne klientów \\ Create this function");
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 5:
                         System.out.println("Dodawanie nowego samochodu \\ Create this function");
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     default:
                         break;
@@ -228,20 +304,45 @@ public class Shop implements ISklep {
     }
 
     @Override
-    public String shearchModelAndMarkCar() {
-        return null;
+    public void shearchModelAndMarkCar() throws FileNotFoundException {
+        Map<String, String> carShearch = new HashMap<>();
+
+        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
+        File[] listOfFile = folder.listFiles();
+
+        for(File file : listOfFile) {
+            if(file.isFile() && file.getName().endsWith(".txt")){
+                String[] split = file.getName().split(".txt");
+                String[] car = {split[0]};
+                for (String i : car) {
+                    String[] modelMark = i.split(" ");
+                    carShearch.put(modelMark[1], modelMark[0]);
+                }
+            }
+        }
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Wprowadz pierwsze litery Marki lub Mddeli samochodu!");
+        String input = scan.nextLine();
+
+        int v = 1;
+
+        for(Map.Entry<String, String> i : carShearch.entrySet()){
+            if(i.getKey().startsWith(input) || i.getValue().startsWith(input)){
+                System.out.println(v++ + ". " + i.getValue() + " " + i.getKey());
+            }
+        }
     }
 
     @Override
     public void saveData() {
-
     }
 
     @Override
     public String readData() throws FileNotFoundException {
         Car infoCar = new Car();
 
-        File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\");
+        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
 
         List<String> car = new ArrayList<>();
 
@@ -316,7 +417,7 @@ public class Shop implements ISklep {
     }
 
     public String nameCompani() throws FileNotFoundException {
-        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
+        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
         Scanner scan = new Scanner(file);
 
         String nameComapni = "";

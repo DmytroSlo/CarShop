@@ -1,0 +1,6 @@
+Marka: BMW
+Model: I3
+Power Engin: 3400
+Year: 2014
+Dystance: 8140
+Power: 1.1
