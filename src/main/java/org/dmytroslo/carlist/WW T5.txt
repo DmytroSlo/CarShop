@@ -1,0 +1,6 @@
+Marka: WW
+Model: T5
+Power Engin: 1850
+Year: 2012
+Dystance: 178673 km
+Power: 1.8

@@ -126,7 +126,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 4:
-                        clientsDate();
+                        clientsDate(false);
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -138,7 +138,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 5:
-                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        addCar();
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -206,7 +206,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 4:
-                        clientsDate();
+                        clientsDate(false);
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -218,10 +218,28 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 5:
-                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        addCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 6:
-                        System.out.println("Usuwanie samochodów \\ Create this function");
+                        deleteCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 7:
                         newUser();
@@ -292,7 +310,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 4:
-                        clientsDate();
+                        clientsDate(true);
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -304,10 +322,28 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 5:
-                        System.out.println("Dodawanie nowego samochodu \\ Create this function");
+                        addCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 6:
-                        System.out.println("Usuwanie samochodów \\ Create this function");
+                        deleteCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 7:
                         newUser();
@@ -331,7 +367,7 @@ public class Shop implements ISklep {
 
     @Override
     public void setInfo() throws FileNotFoundException {
-        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
         Scanner scan = new Scanner(file);
 
         while(scan.hasNextLine()){
@@ -362,15 +398,6 @@ public class Shop implements ISklep {
         System.out.print("Podaj moć [Example 1,4]: ");
         double moc = scan.nextDouble();
 
-        System.out.println("Zatwierdz:" +
-                "\nMark: " + mark +
-                "\nModel: " + model +
-                "\nPower Engin: " + powerEng +
-                "\nYear: " + year +
-                "\nDystance: " + dystance +
-                "\nPower: " + moc);
-        String accept = scan.nextLine();
-
         Car addCar = new Car.Builder().setMark(mark)
                 .setModel(model)
                 .setPowerEngin(powerEng)
@@ -383,14 +410,39 @@ public class Shop implements ISklep {
 
     @Override
     public void deleteCar() {
+        File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
 
+        List<String> car = new ArrayList<>();
+
+        File[] listOfFiles = folder.listFiles();
+
+        for(File file : listOfFiles) {
+            if(file.isFile() && file.getName().endsWith(".txt")){
+                car.add(file.getName());
+            }
+        }
+
+        int i = 1;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Wybierz samochód");
+        for(String c : car){
+            String[] name = c.split(".txt");
+            System.out.println(i++ + ". Car: " + name[0]);
+        }
+
+        System.out.print("Podaj numer: ");
+        int number = scan.nextInt();
+
+        File folderDeleted = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\" + car.get(number - 1));
+        folderDeleted.delete();
     }
 
     @Override
     public void shearchModelAndMarkCar() throws FileNotFoundException {
         Map<String, String> carShearch = new HashMap<>();
 
-        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
+        File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
         File[] listOfFile = folder.listFiles();
 
         for(File file : listOfFile) {
@@ -427,13 +479,14 @@ public class Shop implements ISklep {
 
     @Override
     public void saveData() {
+
     }
 
     @Override
     public String readData() throws FileNotFoundException {
         Car infoCar = new Car();
 
-        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
+        File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
 
         List<String> car = new ArrayList<>();
 
@@ -460,8 +513,8 @@ public class Shop implements ISklep {
         return infoCar.info(car.get(number - 1));
     }
 
-    public void clientsDate() throws FileNotFoundException {
-        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users");
+    public void clientsDate(boolean ho) throws FileNotFoundException {
+        File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users");
 
         File[] listOfUsers = folder.listFiles();
         List<String> users = new ArrayList<>();
@@ -484,8 +537,9 @@ public class Shop implements ISklep {
         System.out.print("Wybierz klienta którego chcesz zobaczyć: ");
         int input = scan.nextInt();
 
-        File userFolder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + users.get(input - 1));
+        File userFolder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + users.get(input - 1));
         Scanner scanner = new Scanner(userFolder);
+
         while(scanner.hasNextLine()){
             System.out.println(scanner.nextLine());
         }
@@ -539,7 +593,7 @@ public class Shop implements ISklep {
     }
 
     public String nameCompani() throws FileNotFoundException {
-        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
         Scanner scan = new Scanner(file);
 
         String nameComapni = "";

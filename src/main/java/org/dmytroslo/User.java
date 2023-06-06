@@ -25,7 +25,7 @@ public class User {
 
     public void createAccount() throws FileNotFoundException {
         System.out.println("Start");
-        PrintWriter save = new PrintWriter("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
+        PrintWriter save = new PrintWriter("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
         save.println("Name: " + name +
                 "\nLast name: " + lName +
                 "\nLogin: " + login +
@@ -41,7 +41,7 @@ public class User {
 
     public boolean isNotEmpty(String login) throws FileNotFoundException {
 
-        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
 
         boolean isNotEmpty = false;
 
@@ -53,7 +53,7 @@ public class User {
     }
 
     public void setGet(String login) throws FileNotFoundException {
-        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
 
         Scanner scan = new Scanner(file);
         while(scan.hasNextLine()){
@@ -81,7 +81,7 @@ public class User {
     }
 
     public boolean currentPassword(String login, String password) throws FileNotFoundException {
-        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
+        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
 
         boolean acceptLogin = false;
 
