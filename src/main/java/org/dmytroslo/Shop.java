@@ -31,6 +31,7 @@ public class Shop implements ISklep {
                         "\n2. Wyszukiwanie samochoda" +
                         "\n3. Danne salonu");
 
+                System.out.print(": ");
                 int result = scan.nextInt();
                 Scanner scanner = new Scanner(System.in);
                 String res = "";
@@ -86,6 +87,7 @@ public class Shop implements ISklep {
                         "\n4. Danne klientów" +
                         "\n5. Dodawanie nowego samochodu");
 
+                System.out.print(": ");
                 int result = scan.nextInt();
 
                 Scanner scanner = new Scanner(System.in);
@@ -94,8 +96,9 @@ public class Shop implements ISklep {
                     case 1:
                         readData();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -106,8 +109,9 @@ public class Shop implements ISklep {
                     case 2:
                         shearchModelAndMarkCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -118,8 +122,9 @@ public class Shop implements ISklep {
                     case 3:
                         setInfo();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -130,8 +135,9 @@ public class Shop implements ISklep {
                     case 4:
                         clientsDate(false);
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -142,8 +148,9 @@ public class Shop implements ISklep {
                     case 5:
                         addCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -166,6 +173,7 @@ public class Shop implements ISklep {
                         "\n6. Usuwanie samochodów" +
                         "\n7. Rejestracjia nowego użytkownika");
 
+                System.out.print(": ");
                 int result = scan.nextInt();
 
                 Scanner scanner = new Scanner(System.in);
@@ -174,8 +182,9 @@ public class Shop implements ISklep {
                     case 1:
                         readData();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -186,8 +195,9 @@ public class Shop implements ISklep {
                     case 2:
                         shearchModelAndMarkCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -198,8 +208,9 @@ public class Shop implements ISklep {
                     case 3:
                         setInfo();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -210,8 +221,9 @@ public class Shop implements ISklep {
                     case 4:
                         clientsDate(false);
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -222,8 +234,9 @@ public class Shop implements ISklep {
                     case 5:
                         addCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -234,8 +247,9 @@ public class Shop implements ISklep {
                     case 6:
                         deleteCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -246,8 +260,9 @@ public class Shop implements ISklep {
                     case 7:
                         newUser();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
@@ -270,6 +285,7 @@ public class Shop implements ISklep {
                         "\n7. Rejestracjia nowego użytkownika" +
                         "\n8. Zmiana nazwy salonu");
 
+                System.out.print(": ");
                 int result = scan.nextInt();
 
                 Scanner scanner = new Scanner(System.in);
@@ -278,8 +294,9 @@ public class Shop implements ISklep {
                     case 1:
                         readData();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -290,8 +307,9 @@ public class Shop implements ISklep {
                     case 2:
                         shearchModelAndMarkCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -302,8 +320,9 @@ public class Shop implements ISklep {
                     case 3:
                         setInfo();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -314,8 +333,9 @@ public class Shop implements ISklep {
                     case 4:
                         clientsDate(true);
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -326,8 +346,9 @@ public class Shop implements ISklep {
                     case 5:
                         addCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -338,8 +359,9 @@ public class Shop implements ISklep {
                     case 6:
                         deleteCar();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
 
                         if(!res.equals("Y")){
@@ -361,8 +383,9 @@ public class Shop implements ISklep {
                     case 8:
                         saveData();
 
-                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
-                                "\nDla zakonczenia - N");
+                        System.out.print("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N" +
+                                ": ");
                         res = scanner.nextLine();
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
