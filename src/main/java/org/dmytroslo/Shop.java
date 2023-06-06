@@ -58,7 +58,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 3:
-                        System.out.println("Danne salonu \\ Create this function");
+                        setInfo();
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -114,7 +114,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 3:
-                        System.out.println("Danne salonu \\ Create this function");
+                        setInfo();
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -126,7 +126,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 4:
-                        System.out.println("Danne klientów \\ Create this function");
+                        clientsDate();
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -194,10 +194,28 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 3:
-                        System.out.println("Danne salonu \\ Create this function");
+                        setInfo();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 4:
-                        System.out.println("Danne klientów \\ Create this function");
+                        clientsDate();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 5:
                         System.out.println("Dodawanie nowego samochodu \\ Create this function");
@@ -262,10 +280,28 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 3:
-                        System.out.println("Danne salonu \\ Create this function");
+                        setInfo();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 4:
-                        System.out.println("Danne klientów \\ Create this function");
+                        clientsDate();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 5:
                         System.out.println("Dodawanie nowego samochodu \\ Create this function");
@@ -294,9 +330,14 @@ public class Shop implements ISklep {
     }
 
     @Override
-    public String setInfo() {
+    public void setInfo() throws FileNotFoundException {
+        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\infoCompani.txt");
+        Scanner scan = new Scanner(file);
 
-        return null;
+        while(scan.hasNextLine()){
+            String line = scan.nextLine();
+            System.out.println(line);
+        }
     }
 
     @Override
@@ -417,6 +458,37 @@ public class Shop implements ISklep {
         int number = scan.nextInt();
 
         return infoCar.info(car.get(number - 1));
+    }
+
+    public void clientsDate() throws FileNotFoundException {
+        File folder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users");
+
+        File[] listOfUsers = folder.listFiles();
+        List<String> users = new ArrayList<>();
+
+        for(File file : listOfUsers) {
+            if (file.isFile() && file.getName().endsWith(".txt")) {
+                users.add(file.getName());
+            }
+        }
+
+        int value = 1;
+
+        System.out.println("Lista klientów");
+        for(String el : users){
+            String[] currentEl = el.split(".txt");
+            System.out.println(value++ + ". " +currentEl[0]);
+        }
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Wybierz klienta którego chcesz zobaczyć: ");
+        int input = scan.nextInt();
+
+        File userFolder = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + users.get(input - 1));
+        Scanner scanner = new Scanner(userFolder);
+        while(scanner.hasNextLine()){
+            System.out.println(scanner.nextLine());
+        }
     }
 
     public void newUser() throws FileNotFoundException {

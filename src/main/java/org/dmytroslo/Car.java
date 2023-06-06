@@ -27,7 +27,7 @@ public class Car {
 
     public String info(String name) throws FileNotFoundException {
 
-        File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\" + name);
+        File file = new File("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\" + name);
         Scanner scan = new Scanner(file);
 
         System.out.println("Car:");
@@ -40,7 +40,7 @@ public class Car {
     }
 
     public void writeCar() throws FileNotFoundException {
-        PrintWriter addCar = new PrintWriter("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\" + mark +" " + model + ".txt");
+        PrintWriter addCar = new PrintWriter("C:\\Users\\Dmytro.Slobodian.PL03W169\\Desktop\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist" + mark +" " + model + ".txt");
 
         addCar.println("Marka: " + mark +
                 "\nModel: " + model +

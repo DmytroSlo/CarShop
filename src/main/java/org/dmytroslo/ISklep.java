@@ -3,7 +3,7 @@ package org.dmytroslo;
 import java.io.FileNotFoundException;
 
 public interface ISklep {
-    String setInfo();
+    void setInfo() throws FileNotFoundException;
     void addCar() throws FileNotFoundException;
     void deleteCar();
     void shearchModelAndMarkCar() throws FileNotFoundException;
