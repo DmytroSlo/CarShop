@@ -1,0 +1,6 @@
+Name: Jhon
+Last name: Snow
+Login: jsnow
+Password: javaFX
+Age: 37
+Role: CLIENT

@@ -1,0 +1,6 @@
+Marka: Szkoda
+Model: Octavia
+Power Engin: 1670
+Year: 2001
+Dystance: 176987 km
+Power: 1.6
