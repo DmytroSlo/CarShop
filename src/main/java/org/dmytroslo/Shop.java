@@ -102,7 +102,7 @@ public class Shop implements ISklep {
                         }
                         break;
                     case 2:
-                        System.out.println("W trakcie \\ Create this function");
+                        shearchModelAndMarkCar();
 
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
@@ -165,12 +165,32 @@ public class Shop implements ISklep {
                         "\n7. Rejestracjia nowego użytkownika");
 
                 int result = scan.nextInt();
+
+                String res = "";
                 switch (result){
                     case 1:
                         readData();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scan.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 2:
-                        System.out.println("W trakcie \\ Create this function");
+                        shearchModelAndMarkCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scan.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 3:
                         System.out.println("Danne salonu \\ Create this function");
@@ -189,7 +209,7 @@ public class Shop implements ISklep {
                         Scanner scanner = new Scanner(System.in);
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
-                        String res = scanner.nextLine();
+                        res = scanner.nextLine();
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
                             return;
@@ -212,12 +232,31 @@ public class Shop implements ISklep {
                         "\n8. Zmiana nazwy salonu");
 
                 int result = scanner.nextInt();
+                String res = "";
                 switch (result){
                     case 1:
                         readData();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 2:
-                        System.out.println("W trakcie \\ Create this function");
+                        shearchModelAndMarkCar();
+
+                        System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
+                                "\nDla zakonczenia - N");
+                        res = scanner.nextLine();
+
+                        if(!res.equals("Y")){
+                            System.out.println("Do zobaczenia " + user.getName() + "!");
+                            return;
+                        }
                         break;
                     case 3:
                         System.out.println("Danne salonu \\ Create this function");
@@ -236,7 +275,7 @@ public class Shop implements ISklep {
                         Scanner scan = new Scanner(System.in);
                         System.out.println("Oby cofnąć się do poprzedniego menu wybierz - Y." +
                                 "\nDla zakonczenia - N");
-                        String res = scan.nextLine();
+                        res = scan.nextLine();
                         if(!res.equals("Y")){
                             System.out.println("Do zobaczenia " + user.getName() + "!");
                             return;
@@ -327,11 +366,19 @@ public class Shop implements ISklep {
 
         int v = 1;
 
+        List<String> car = new ArrayList<>();
+
         for(Map.Entry<String, String> i : carShearch.entrySet()){
             if(i.getKey().startsWith(input) || i.getValue().startsWith(input)){
                 System.out.println(v++ + ". " + i.getValue() + " " + i.getKey());
+                car.add(i.getValue() + " " + i.getKey() + ".txt");
             }
         }
+
+        System.out.println("Wybierz samochód z listy: ");
+        int number = scan.nextInt();
+        Car carInfo = new Car();
+        carInfo.info(car.get(number - 1));
     }
 
     @Override
