@@ -515,7 +515,7 @@ public class Shop implements ISklep {
     }
 
     @Override
-    public String readData() throws FileNotFoundException {
+    public void readData() throws FileNotFoundException {
         Car infoCar = new Car();
 
         File folder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist");
@@ -542,7 +542,7 @@ public class Shop implements ISklep {
         System.out.print("Podaj numer: ");
         int number = scan.nextInt();
 
-        return infoCar.info(car.get(number - 1));
+        infoCar.info(car.get(number - 1));
     }
 
     public void clientsDate(boolean ho) throws FileNotFoundException {
@@ -557,12 +557,33 @@ public class Shop implements ISklep {
             }
         }
 
+        List<String> name = new ArrayList<>();
+        List<String> lName = new ArrayList<>();
+
+        for(String el : users) {
+            File userFolder = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + el);
+            Scanner scanner = new Scanner(userFolder);
+
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                if(line.startsWith("Name: ")){
+                    String[] n = line.split("Name: ");
+                    name.add(n[1]);
+                }
+
+                if(line.startsWith("Last name: ")){
+                    String[] n = line.split("Last name: ");
+                    lName.add(n[1]);
+                }
+            }
+        }
+
+        int j = 0;
         int value = 1;
 
         System.out.println("Lista klientów");
-        for(String el : users){
-            String[] currentEl = el.split(".txt");
-            System.out.println(value++ + ". " +currentEl[0]);
+        for(int i = 0; i < name.size(); i++) {
+                System.out.println(value++ + ". " + name.get(i) + " " + lName.get(j++));
         }
 
         Scanner scan = new Scanner(System.in);

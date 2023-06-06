@@ -1,6 +1,6 @@
 Name: Jan
 Last name: Kowalski
-Login: janusz28
-Password: jankow228
+Login: jankowal
+Password: januszek97
 Age: 43
 Role: BOSS

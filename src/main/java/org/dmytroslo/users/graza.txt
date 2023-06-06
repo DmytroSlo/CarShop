@@ -1,6 +1,0 @@
-Name: Grazyna
-Last name: Lorek
-Login: graza
-Password: gg21
-Age: 54
-Role: CLIENT

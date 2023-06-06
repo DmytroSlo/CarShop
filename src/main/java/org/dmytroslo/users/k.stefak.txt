@@ -1,0 +1,6 @@
+Name: Kacper
+Last name: Stefak
+Login: k.stefak
+Password: stefanczyk
+Age: 34
+Role: CLIENT

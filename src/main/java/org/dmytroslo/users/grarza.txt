@@ -1,0 +1,6 @@
+Name: Grarzyna
+Last name: Kowalska
+Login: grarza
+Password: gg76
+Age: 43
+Role: PERSONAL

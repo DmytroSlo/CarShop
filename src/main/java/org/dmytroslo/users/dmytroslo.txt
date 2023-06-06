@@ -1,0 +1,6 @@
+Name: Dmytro
+Last name: Slo
+Login: dmytroslo
+Password: juniorJava
+Age: 22
+Role: ADMINISTRATOR

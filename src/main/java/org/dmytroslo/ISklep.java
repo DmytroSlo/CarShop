@@ -9,5 +9,5 @@ public interface ISklep {
     void deleteCar();
     void shearchModelAndMarkCar() throws FileNotFoundException;
     void saveData() throws IOException;
-    String readData() throws FileNotFoundException;
+    void readData() throws FileNotFoundException;
 }

@@ -23,7 +23,7 @@ public class Car {
         this.power = power;
     }
 
-    public String info(String name) throws FileNotFoundException {
+    public void info(String name) throws FileNotFoundException {
 
         File file = new File("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\carlist\\" + name);
         Scanner scan = new Scanner(file);
@@ -33,8 +33,6 @@ public class Car {
             String el = scan.nextLine();
             System.out.println(el);
         }
-
-        return null;
     }
 
     public void writeCar() throws FileNotFoundException {

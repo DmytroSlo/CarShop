@@ -1,0 +1,6 @@
+Name: Adam
+Last name: Nowicki
+Login: nadam
+Password: n123
+Age: 27
+Role: CLIENT

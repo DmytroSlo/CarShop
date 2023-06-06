@@ -1,6 +1,5 @@
 package org.dmytroslo;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -23,14 +22,10 @@ public class Main {
             if (user.isNotEmpty(login) && user.currentPassword(login, password)) {
                 System.out.println("Witaj " + user.getName() + " w naszym salonie!");
                 shop.start(login);
+                break;
             } else if (user.isNotEmpty(login) && !user.currentPassword(login, password)) {
-                System.out.print("Złe wpisałeś hasło! Spróbuj ponownie!" +
-                        "\nWpisz \"Y\" oby spróbować ponownie lub \"N\" oby skończyć seans: ");
-                Scanner scanner = new Scanner(System.in);
-                String input = scanner.nextLine();
-                if(!input.equals("Y")){
-                    break;
-                }
+                System.out.print("Złe wpisałeś hasło!");
+                break;
             } else if (!user.isNotEmpty(login)) {
                 System.out.println("Takiego użytkownika nie ma w systemie." +
                         "\nSkontaktuj się z przedstawicielami serwisa dla zalorzenia konta!");

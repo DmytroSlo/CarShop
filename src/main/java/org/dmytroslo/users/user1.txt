@@ -1,6 +1,0 @@
-Name: user1
-Last name: user1
-Login: user1
-Password: 123
-Age: 37
-Role: PERSONAL

@@ -24,7 +24,6 @@ public class User {
     }
 
     public void createAccount() throws FileNotFoundException {
-        System.out.println("Start");
         PrintWriter save = new PrintWriter("D:\\Programowanie\\03.06.2023\\CarShop\\src\\main\\java\\org\\dmytroslo\\users\\" + login + ".txt");
         save.println("Name: " + name +
                 "\nLast name: " + lName +
@@ -108,28 +107,8 @@ public class User {
         return name;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public Role getRole() {
